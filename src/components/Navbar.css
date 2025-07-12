@@ -129,7 +129,7 @@
   top: 267%;
   left: -581%;
   right: -318%;
-  width: 1255px;
+  width: 1225px;
   background: white;
   border-top: 1px solid #ccc;
   display: flex;
@@ -155,4 +155,16 @@
   background-color: #ddd;
 }
 
-
+.submenu-2 {
+  position: absolute;
+    top: 267%;
+    left: -157%;
+    background: white;
+    border-top: 1px solid #ccc;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    z-index: 1000;
+    padding: 8px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}

@@ -25,7 +25,7 @@ const Equipos: React.FC = () => {
             <LogoEquipo foto={e.foto} /> {/* Aquí pasamos el nombre del archivo */}
             <h3 >{e.nombre}</h3>
             <p className='equipos'>Fundación {e.fundacion}</p>
-            <a href={`/jugadores/equipo/${e.id}`} className="btn">
+            <a href={`/equipo/${e.id}`} className="btn">
               Ver Jugadores
             </a>
           </div>

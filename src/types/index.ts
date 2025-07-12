@@ -1,13 +1,17 @@
 export interface Jugador {
   id: number;
   nombre: string;
-  apellido:string;
+  apellido: string;
+  edad: number;
   posicion: string;
   equipoId: number;
   foto?: string;
+  pais?: string;
+  goles: number;
+  tarjetasAmarillas: number;
+  tarjetasRojas: number;
+  partidosJugados: number;
   isActive: boolean;
-  edad: number;
-  pais: string; 
 }
 
 export interface Equipo {
@@ -20,12 +24,15 @@ export interface Equipo {
 }
 
 
-export interface Estadistica {
+export interface EstadisticaEquipo {
   id: number;
-  jugadorId: number;
-  goles: number;
-  asistencias: number;
-}
+  equipoId: number;
+  equipo: Equipo;
+  golesFavor: number;
+  golesContra: number;
+  tarjetasAmarillas: number;
+  tarjetasRojas: number;
+};
 
 export interface Partido {
   id: number;

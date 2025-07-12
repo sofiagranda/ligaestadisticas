@@ -1,0 +1,68 @@
+.estadisticas-generales {
+  padding: 20px;
+}
+
+.filtros button {
+  margin-right: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  font-weight: 800;
+  transition: background-color 0.3s;
+  width: 18%;
+}
+
+.filtros{
+  margin: 20px 0px;
+  width: auto;
+}
+
+.ranking{
+  /* display: inline-block; */
+  width: 0;
+}
+
+.filtros button.active {
+  background-color: #ff4d4f;
+  color: white;
+  border-color: #ff4d4f;
+}
+
+.filtros button:hover:not(.active) {
+  background-color: #f0f0f0;
+}
+
+.tabla-estadisticas {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-estadisticas thead {
+  background-color: #f5f5f5;
+}
+
+.tabla-estadisticas th,
+.tabla-estadisticas td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.jugador-info,
+.equipo-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.foto-jugador,
+.logo-equipo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 50%;
+}

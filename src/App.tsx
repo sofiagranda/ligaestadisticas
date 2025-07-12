@@ -7,6 +7,8 @@ import Estadisticas from './pages/Estadisticas';
 import Partidos from './pages/Partidos';
 import JugadoresPorEquipo from './components/JugadoresPorEquipo';
 import HomePage from './components/Home';
+import EstadisticasGenerales from './components/EstadisticasGenerales';
+import EstadisticasEquipos from './components/EstadisticasEquipos';
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
           <Route path="/equipos" element={<Equipos />} />
           <Route path="/estadisticas" element={<Estadisticas />} />
           <Route path="/partidos" element={<Partidos />} />
-          <Route path="/jugadores/equipo/:equipoId" element={<JugadoresPorEquipo />} />
+          <Route path="/equipo/:equipoId" element={<JugadoresPorEquipo />} />
+          <Route path="/estadisticas/generales" element={<EstadisticasGenerales />} />
+          <Route path="/estadisticas/equipos" element={<EstadisticasEquipos />} />
         </Routes>
       </main>
     </>

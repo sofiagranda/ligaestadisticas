@@ -1,89 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import api from '../api/api';
-import type { Estadistica, Jugador, } from '../types';
+import type { Jugador } from '../types';
 
-interface EstadisticaExpandida {
-    nombre: string;
-    goles: number;
-    asistencias: number;
-}
-interface ApiResponse<T> {
-    success: boolean;
-    message: string;
-    data: T;
-}
+const JugadoresConEstadisticas: React.FC = () => {
+  const [jugadores, setJugadores] = useState<Jugador[]>([]);
 
-type EstadisticasPaginadas = {
-    items: Estadistica[];
-    meta: {
-        totalItems: number;
-        itemCount: number;
-        itemsPerPage: number;
-        totalPages: number;
-        currentPage: number;
-    };
-};
-type JugadoresPaginados = {
-    items: Jugador[];
-    meta: {
-        totalItems: number;
-        itemCount: number;
-        itemsPerPage: number;
-        totalPages: number;
-        currentPage: number;
-    };
-};
+  useEffect(() => {
+    api.get('/jugadores').then((res) => {
+      setJugadores(res.data.data.items); // Asumiendo paginado
+    });
+  }, []);
 
-
-
-const Estadisticas: React.FC = () => {
-    const [data, setData] = useState<EstadisticaExpandida[]>([]);
-
-    useEffect(() => {
-        Promise.all([
-            api.get('/jugadores'),
-            api.get('/estadisticas'),
-        ]).then(([jugadoresRes, estadisticasRes]) => {
-            const jugadores = jugadoresRes.data.data.items;
-            const estadisticas = estadisticasRes.data.data.items;
-
-            const jugadoresMap = new Map(jugadores.map((j: Jugador) => [j.id, j.nombre]));
-
-            const resultado = estadisticas.map((est: Estadistica) => ({
-                nombre: jugadoresMap.get(est.jugadorId) || 'Desconocido',
-                goles: est.goles,
-                asistencias: est.asistencias,
-            }));
-
-            setData(resultado);
-        });
-    }, []);
-
-
-
-    return (
-        <div>
-            <h2 className="mb-4">Estadísticas</h2>
-            <table className="table table-bordered">
-                <thead className="table-dark">
-                    <tr>
-                        <th>Jugador</th>
-                        <th>Goles</th>
-                        <th>Asistencias</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((e, i) => (
-                        <tr key={i}>
-                            <td>{e.nombre}</td>
-                            <td>{e.goles}</td>
-                            <td>{e.asistencias}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    );
+  return (
+    <div>
+      <h2 className="mb-4">Jugadores y sus Estadísticas</h2>
+      <table className="table table-bordered">
+        <thead className="table-dark">
+          <tr>
+            <th>No</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Posición</th>
+            <th>Goles</th>
+            <th>Partidos Jugados</th>
+            <th>Tarjetas Amarillas</th>
+            <th>Tarjetas Rojas</th>
+          </tr>
+        </thead>
+        <tbody>
+          {jugadores.map((jugador) => (
+            <tr key={jugador.id}>
+              <td>{jugador.edad}</td>
+              <td>{jugador.nombre}</td>
+              <td>{jugador.apellido}</td>
+              <td>{jugador.posicion}</td>
+              <td>{jugador.goles}</td>
+              <td>{jugador.partidosJugados}</td>
+              <td>{jugador.tarjetasAmarillas}</td>
+              <td>{jugador.tarjetasRojas}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
-export default Estadisticas;
+export default JugadoresConEstadisticas;

@@ -6,7 +6,8 @@ import api from '../api/api';
 
 const NavbarInferior: React.FC = () => {
   const [equipos, setEquipos] = useState<Equipo[]>([]);
-  const [mostrarMenu, setMostrarMenu] = useState(false);
+  const [mostrarMenuJugadores, setMostrarMenuJugadores] = useState(false);
+  const [mostrarMenuEstadisticas, setMostrarMenuEstadisticas] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -18,14 +19,15 @@ const NavbarInferior: React.FC = () => {
         console.error(err);
       }
     };
-
     fetchEquipos();
   }, []);
 
-  // Cierra el menú al navegar a otra ruta
+  // Cierra los menús al cambiar ruta
   useEffect(() => {
-    setMostrarMenu(false);
+    setMostrarMenuJugadores(false);
+    setMostrarMenuEstadisticas(false);
   }, [location]);
+
   return (
     <div className="navbar-inferior px-4 py-2 d-flex align-items-center justify-content-between">
       <div>
@@ -41,7 +43,9 @@ const NavbarInferior: React.FC = () => {
         </div>
       </div>
       <div className="img align-items-center gap-4">
-        <img src="public/logos/logo_liga.png" alt="LALIGA" className="laliga-logo" />
+        <Link to="/">
+        <img src="/logos/logo_liga.png" alt="LALIGA" className="laliga-logo" />
+        </Link>
       </div>
       <div>
         <div className="organizacion organizacion2 fondoarriba">
@@ -52,22 +56,23 @@ const NavbarInferior: React.FC = () => {
         </div>
         <div className="organizacion">
           <div className="nav-item">
-        <Link
-          to="/jugadores"
-          className="nav-link"
-          onClick={(e) => {
-            e.preventDefault(); // evita navegación inmediata
-            setMostrarMenu(prev => !prev);
-          }}>
-          Jugadores 
-        </Link>
-
-            {mostrarMenu && (
+            <Link
+              to="/jugadores"
+              className="nav-link"
+              onClick={e => {
+                e.preventDefault();
+                setMostrarMenuJugadores(prev => !prev);
+                setMostrarMenuEstadisticas(false);
+              }}
+            >
+              Jugadores
+            </Link>
+            {mostrarMenuJugadores && (
               <div className="submenu">
                 {equipos.map(e => (
                   <Link
                     key={e.id}
-                    to={`/jugadores/equipo/${e.id}`}
+                    to={`/equipo/${e.id}`}
                     className="submenu-item"
                   >
                     {e.nombre}
@@ -76,8 +81,31 @@ const NavbarInferior: React.FC = () => {
               </div>
             )}
           </div>
+
           <div><Link to="/partidos" className="nav-link">Partidos</Link></div>
-          <div><Link to="/estadisticas" className="nav-link">Estadísticas</Link></div>
+
+          <div className="nav-item">
+            <Link
+              to="/estadisticas"
+              className="nav-link"
+              onClick={e => {
+                e.preventDefault();
+                setMostrarMenuEstadisticas(prev => !prev);
+                setMostrarMenuJugadores(false);
+              }}
+            >
+              Estadísticas
+            </Link>
+
+            {mostrarMenuEstadisticas && (
+              <div className="submenu-2">
+                <Link to="/estadisticas/generales" className="submenu-item">Generales</Link>
+                <Link to="/estadisticas/equipos" className="submenu-item">Equipos</Link>
+                <Link to="/estadisticas/tabla-posiciones" className="submenu-item">Tabla de Posiciones</Link>
+              </div>
+            )}
+          </div>
+
           <div><Link to="/equipos" className="nav-link">Equipos</Link></div>
         </div>
       </div>
