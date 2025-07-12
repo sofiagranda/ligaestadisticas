@@ -127,8 +127,9 @@
 .submenu {
   position: absolute;
   top: 267%;
-  right: -24rem;
-  width: 97vw;
+  left: -581%;
+  right: -318%;
+  width: 1255px;
   background: white;
   border-top: 1px solid #ccc;
   display: flex;
@@ -142,7 +143,7 @@
 .submenu-item {
   flex: 0 0 auto;
   padding: 12px 20px;
-  margin: 0 4px;
+  /* margin: 0 4px; */
   text-decoration: none;
   color: #333;
   background-color: white;

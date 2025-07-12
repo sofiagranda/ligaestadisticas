@@ -12,7 +12,7 @@ const Equipos: React.FC = () => {
 
   // Componente para mostrar el logo
   const LogoEquipo = ({ foto }: { foto: string }) => {
-    const imageUrl = `http://localhost:3014/public/logos/${foto}`; // Ruta pública de la imagen
+    const imageUrl = `https://estadisticas-api.desarrollo-software.xyz/public/logos/${foto}`; // Ruta pública de la imagen
     return <img src={imageUrl} alt="Logo del equipo" />;
   };
 

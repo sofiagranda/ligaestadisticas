@@ -6,6 +6,7 @@ import Equipos from './pages/Equipos';
 import Estadisticas from './pages/Estadisticas';
 import Partidos from './pages/Partidos';
 import JugadoresPorEquipo from './components/JugadoresPorEquipo';
+import HomePage from './components/Home';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <main className="container mt-4">
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/jugadores" element={<Jugadores />} />
           <Route path="/equipos" element={<Equipos />} />
           <Route path="/estadisticas" element={<Estadisticas />} />
