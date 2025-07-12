@@ -1,0 +1,157 @@
+.navbar-inferior {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+}
+.img{
+  border: solid 3px  #f4f4f4;
+}
+
+.navbar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas: una para izquierda y otra para derecha */
+  grid-template-rows: 1fr 1fr; /* Dos filas: una para arriba y otra para abajo */
+  gap: 1rem;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+.navbar-grid div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-top {
+  /* Estilo para el div superior izquierdo */
+  background-color: #f0f0f0;
+  padding: 1rem;
+}
+
+.nav-link{
+  padding: 0 35px;
+  color:black;
+  text-decoration: none;
+}
+
+.organizacion{
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 26px 35px;
+  border: solid 1px  #f4f4f4;
+  /* border-top: none; */
+}
+.organizacion2{
+  display: flex;
+  align-items: center;
+  padding: 0px 0px;
+  border: solid 1px  #f4f4f4;
+  /* border-top: none; */
+}
+
+.fondoarriba{
+  background-color: #f4f4f4;
+}
+
+.retro{
+  padding: 0px 0px;
+  font-size: 14px;
+}
+
+.fw-bold{
+  padding: 0 20px;
+}
+
+.fbIVah {
+    flex: 1 1 33%;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+    user-select: none;
+    position: relative;
+}
+
+.left-bottom {
+  /* Estilo para el div inferior izquierdo */
+  background-color: #d9d9d9;
+  padding: 1rem;
+}
+
+.right-top {
+  /* Estilo para el div superior derecho */
+  background-color: #f0f0f0;
+  padding: 1rem;
+}
+
+.right-bottom {
+  /* Estilo para el div inferior derecho */
+  background-color: #d9d9d9;
+  padding: 1rem;
+}
+
+.center-image {
+  grid-column: 1 / 3; /* Hace que la imagen ocupe toda la fila del centro */
+  grid-row: 1 / 3; /* Hace que la imagen ocupe toda la columna del centro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.laliga-logo {
+    width: auto;
+    height: 111px;
+    padding: 28% 11px 0px;
+}
+
+.text-danger{
+  background-color: rgb(15, 57, 184);
+  padding: 32px 0px;
+  color: white;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 267%;
+  right: -24rem;
+  width: 97vw;
+  background: white;
+  border-top: 1px solid #ccc;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  z-index: 1000;
+  padding: 8px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.submenu-item {
+  flex: 0 0 auto;
+  padding: 12px 20px;
+  margin: 0 4px;
+  text-decoration: none;
+  color: #333;
+  background-color: white;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.submenu-item:hover {
+  background-color: #ddd;
+}
+
+

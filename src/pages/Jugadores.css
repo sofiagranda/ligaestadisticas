@@ -1,0 +1,149 @@
+.jugadores-container {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 20px;
+  /* padding: 20px; */
+}
+
+.fut-card {
+  position: relative;
+  width: 219px;
+  height: 300px;
+  margin: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  /* font-family: 'Arial', sans-serif; */
+  color: white;
+}
+
+.fut-card-bg {
+  background-image: url('../../public/logos/carta.png');
+  /* Usa la imagen del primer ejemplo */
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  filter: brightness(0.8);
+}
+
+.card-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-header
+ {
+    display: flex;
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    flex-direction: column;
+    padding-top: 23px;
+    align-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 30px;;
+ }
+
+.card-rating {
+  color: white;
+  font-size: 35px;
+  height: 34px;
+}
+
+.card-position {
+  text-transform: uppercase;
+  font-size: 15px;
+  /* padding-left: 8px; */
+}
+
+.card-photo {
+  margin-top: -33px;
+}
+
+.player-image {
+  width: 100%;
+  height: 144px;
+  /* border-radius: 50%; */
+  object-fit: cover;
+  /* border: 2px solid white; */
+}
+
+.card-name {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.card-team {
+  font-size: 14px;
+  text-align: center;
+}
+
+.torneo-logo-container {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+
+.torneo-logo {
+  width: 50%;
+  height: 45%;
+}
+
+.card-flag {
+  width: 50%;
+  height: 30%;
+}
+
+.team-logo {
+  width: 50%;
+  height: 45%;
+}
+
+.abajo {
+  display: flex;
+  align-items: baseline;
+}
+
+.nombre_jugador {
+  margin: 0;
+}
+
+.parte_abajo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.vertical{
+  display: flex;
+}
+
+.pos-title {
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid rgb(0, 0, 27);
+    margin-bottom: 32px;
+}
+.lmgZEJ {
+    text-transform: uppercase;
+    font-family: fantasy;
+    font-variation-settings: "wght" 800, "wdth" 440;
+    font-size: 24px;
+    line-height: 100%;
+    font-weight: 400;
+    text-align: center;
+}

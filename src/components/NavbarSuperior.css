@@ -1,0 +1,66 @@
+.navbar-superior {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.hfBNCo {
+    grid-area: 1 / 1;
+    border-top: 1px solid rgb(234, 234, 234);
+    border-bottom: 1px solid rgb(234, 234, 234);
+    background-color: rgb(244, 244, 244);
+    color: rgb(0, 0, 27);
+}
+
+.dWtptJ {
+    position: sticky;
+    top: 0px;
+    z-index: 98;
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: 1fr 124px 1fr;
+}
+
+.dXgpqT {
+    font-family: "LaLiga Text";
+    font-size: 12px;
+    line-height: 120%;
+    font-weight: 400;
+}
+
+.hEJfTo {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 48px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    max-width: 1800px;
+    margin: 0px auto;
+}
+
+.clubs-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.club-icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s;
+}
+
+.club-icon:hover {
+  transform: scale(1.2);
+}
+
+.options .col {
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.options .col:hover {
+  text-decoration: underline;
+}
