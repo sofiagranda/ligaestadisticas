@@ -1,0 +1,130 @@
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 20px;
+    color: #2c3e50;
+  }
+  
+  .jornadas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Ajuste para diferentes tamaños */
+    gap: 30px;
+    margin: 0 20px;
+  }
+  
+  .jornada {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .jornada h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .partidos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Para mostrar 4 partidos por fila */
+    gap: 20px;
+  }
+  
+  .partido {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .partido img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 15px;
+  }
+  
+  .partido strong {
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .partido p {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .partido div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .partido div strong {
+    margin: 0 10px;
+  }
+  
+  .partido div p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .jornada:last-child {
+    margin-bottom: 50px;
+  }
+  
+  @media (max-width: 768px) {
+    .jornadas-grid {
+      grid-template-columns: 1fr 1fr; /* Dos columnas por fila */
+    }
+  
+    .partidos {
+      grid-template-columns: 1fr 1fr; /* Dos partidos por fila */
+    }
+  
+    .partido {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .partido img {
+      margin: 10px 0;
+    }
+  
+    .partido div {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .jornadas-grid {
+      grid-template-columns: 1fr; /* Una columna por fila */
+    }
+  
+    .partidos {
+      grid-template-columns: 1fr; /* Un partido por fila */
+    }
+  
+    .partido {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .partido img {
+      margin: 10px 0;
+    }
+  
+    .partido div {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }

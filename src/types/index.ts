@@ -19,8 +19,6 @@ export interface Equipo {
   nombre: string;
   fundacion: number;
   foto: string;
-  colorPrimario?: string; // opcional, hex o nombre
-  colorSecundario?: string; // opcional
 }
 
 
@@ -36,8 +34,8 @@ export interface EstadisticaEquipo {
 
 export interface Partido {
   id: number;
-  equipoLocal: string;
-  equipoVisitante: string;
+  equipoLocalId: number;
+  equipoVisitanteId: number;
   fecha: string;
   golesLocal: number;
   golesVisitante: number;
