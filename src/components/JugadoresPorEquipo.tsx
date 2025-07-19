@@ -58,102 +58,234 @@ const ClubTab: React.FC<ClubTabProps> = ({ equipoId, equipos, partidos, jugadore
   const getEquipoFoto = (id: number) => equipos.find(e => e.id === id)?.foto || '';
 
   return (
-    <div className="club-tab" style={{ display: 'flex', gap: 24, justifyContent: 'space-between' }}>
+    <div
+      className="club-tab"
+      style={{
+        display: 'flex',
+        gap: 24,
+        justifyContent: 'space-between',
+        flexWrap: 'wrap', // para que se adapte si hay poco espacio
+      }}
+    >
 
       {/* Goleadores */}
-      <div className="panel goleadores-panel">
+      <div className="panel goleadores-panel" style={{ minWidth: 320 }}>
         <h3 className="texto-centro">🏆 Máximos Goleadores</h3>
 
         {goleadoresEquipo.length === 0 ? (
           <p>No hay goleadores disponibles.</p>
         ) : (
           <div className="top-goleador-box">
-            {/* Máximo goleador destacado */}
             <div className="goleador-principal">
-              <div className="goles-numero">{goleadoresEquipo[0].goles}</div>
-              <div className="etiqueta">GOLES</div>
-              <img
-                src={goleadoresEquipo[0].foto ? `/jugadores/${goleadoresEquipo[0].foto}` : '/logos/silueta.png'}
-                alt={goleadoresEquipo[0].nombre}
-                className="foto-principal"
-              />
-              <div className="nombre-principal">{goleadoresEquipo[0].nombre} {goleadoresEquipo[0].apellido}</div>
-              <div className="equipo-principal">
-                <img
-                  src={`/logos/${equipos.find(e => e.id === goleadoresEquipo[0].equipoId)?.foto || 'silueta.png'}`}
-                  className="logo-equipo"
-                  alt="Club"
-                />
-                {equipos.find(e => e.id === goleadoresEquipo[0].equipoId)?.nombre}
-              </div>
-            </div>
+              {/* Buscamos el máximo goleador */}
+              {(() => {
+                if (!goleadoresEquipo.length) return <p>No hay datos</p>;
 
-            {/* Tabla de goleadores */}
-            <table className="tabla-goleadores">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Jugador</th>
-                  <th>Goles</th>
-                </tr>
-              </thead>
-              <tbody>
-                {goleadoresEquipo.slice(0, 5).map((j, i) => {
-                  const equipo = equipos.find(e => e.id === j.equipoId);
-                  return (
-                    <tr key={j.id}>
-                      <td>{String(i + 1).padStart(2, '0')}</td>
-                      <td>{j.nombre} {j.apellido}</td>
-                      <td><strong>{j.goles}</strong></td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                // Encontrar el máximo goleador
+                const maxGoleador = goleadoresEquipo.reduce((max, jugador) =>
+                  jugador.goles > max.goles ? jugador : max, goleadoresEquipo[0]);
+
+                const equipoJugador = equipos.find(e => e.id === maxGoleador.equipoId);
+
+                return (
+                  <>
+                    <div className='tablita'>
+                      <div className="goles-numero">{maxGoleador.goles}</div>
+                      <div className="etiqueta">GOLES</div>
+                    </div>
+
+                    <div className="fut-card" key={maxGoleador.id}>
+                      <div className="fut-card-bg" />
+                      <div className="card-overlay">
+                        <div className="card-header">
+                          <span className="card-rating">{maxGoleador.edad}</span>
+                          <span className="card-position">{maxGoleador.posicion}</span>
+                        </div>
+                        <div className="card-photo">
+                          <img
+                            src={maxGoleador.foto && maxGoleador.foto.trim() !== '' ? `/jugadores/${maxGoleador.foto}` : '/logos/silueta.png'}
+                            alt={maxGoleador.nombre}
+                            className="player-image"
+                          />
+                        </div>
+                        <div className="parte_abajo">
+                          <p className="nombre_jugador">{maxGoleador.nombre} {maxGoleador.apellido}</p>
+                        </div>
+                        <div className="abajo">
+                          <img src={`/logos/ecuaddor.png`} alt={maxGoleador.pais} className="card-flag" />
+                          <img src={`/logos/logo_liga.png`} alt="Torneo" className="torneo-logo" />
+                          {equipoJugador?.foto && (
+                            <img src={`/logos/${equipoJugador.foto}`} alt={equipoJugador.nombre} className="team-logo" />
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })()}
+            </div>
           </div>
         )}
+
+        <table className="tabla-goleadores">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Jugador</th>
+              <th>Goles</th>
+            </tr>
+          </thead>
+          <tbody>
+            {goleadoresEquipo.slice(0, 5).map((j, i) => (
+              <tr key={j.id}>
+                <td>{String(i + 1).padStart(2, '0')}</td>
+                <td>{j.nombre} {j.apellido}</td>
+                <td><strong>{j.goles}</strong></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-
       {/* Próximo rival */}
-      <div className="panel proximo-rival" style={{ flex: 1, textAlign: 'center', background: '#fff', padding: 16, borderRadius: 8, boxShadow: '0 1px 6px rgba(0,0,0,0.1)' }}>
+      <div
+        className="panel proximo-rival"
+        style={{
+          flex: 1,
+          textAlign: 'center',
+          background: '#fff',
+          padding: 16,
+          borderRadius: 8,
+          boxShadow: '0 1px 6px rgba(0,0,0,0.1)',
+          minWidth: 240,
+        }}
+      >
         <h3>PRÓXIMO RIVAL</h3>
         {rival ? (
           <>
-            <img src={`/logos/${getEquipoFoto(rival.id)}`} alt={rival.nombre} style={{ width: 100, marginBottom: 12 }} />
-            <h4>{rival.nombre}</h4>
+            <img
+              src={`/logos/${getEquipoFoto(rival.id)}`}
+              alt={rival.nombre}
+              style={{ width: "100%", marginBottom: 12 }}
+            />
+            <h4 className="nombre-proximo">{rival.nombre}</h4>
             {proximoPartido ? (
-              <p>
-                {days}d {hours}h {minutes}m {seconds}s
-              </p>
+              <div className="countdown-container">
+                <div className="time-segment">
+                  <div className="time-number">{String(days).padStart(2, '0')}</div>
+                  <div className="time-label">Days</div>
+                </div>
+                <div className="time-segment">
+                  <div className="time-number">{String(hours).padStart(2, '0')}</div>
+                  <div className="time-label">Hours</div>
+                </div>
+                <div className="time-segment">
+                  <div className="time-number">{String(minutes).padStart(2, '0')}</div>
+                  <div className="time-label">Minutes</div>
+                </div>
+                <div className="time-segment">
+                  <div className="time-number">{String(seconds).padStart(2, '0')}</div>
+                  <div className="time-label">Seconds</div>
+                </div>
+              </div>
             ) : (
               <p>No hay próximo partido.</p>
             )}
           </>
-        ) : (
-          <p>No hay próximo partido.</p>
-        )}
+        ) : null}
       </div>
 
       {/* Partidos jugados */}
-      <div className="panel" style={{ flex: 1, background: '#fff', padding: 16, borderRadius: 8, boxShadow: '0 1px 6px rgba(0,0,0,0.1)' }}>
-        <h3>Partidos Jugados</h3>
-        <ul>
-          {partidosJugados.length > 0 ? partidosJugados.map((p) => {
-            const rivalPartidoId = p.equipoLocalId === equipoId ? p.equipoVisitanteId : p.equipoLocalId;
-            const golesPropios = p.equipoLocalId === equipoId ? p.golesLocal : p.golesVisitante;
-            const golesRival = p.equipoLocalId === equipoId ? p.golesVisitante : p.golesLocal;
-            return (
-              <li key={p.id}>
-                {new Date(p.fecha).toLocaleDateString('es-ES')} - {getEquipoNombre(rivalPartidoId)} - {golesPropios}:{golesRival}
-              </li>
-            );
-          }) : <p>No hay partidos jugados.</p>}
-        </ul>
+      <div className="panel goleadores-panel" style={{ minWidth: 320 }}>
+        <h3 className="texto-centro">🏆 Partidos Jugados</h3>
+
+        {goleadoresEquipo.length === 0 ? (
+          <p>No hay goleadores disponibles.</p>
+        ) : (
+          <div className="top-goleador-box">
+            <div className="goleador-principal">
+              {/* Buscamos el máximo goleador */}
+              {(() => {
+                if (!goleadoresEquipo.length) return <p>No hay datos</p>;
+
+                // Encontrar el máximo goleador
+                const maxGoleador = goleadoresEquipo.reduce((max, jugador) =>
+                  jugador.goles > max.goles ? jugador : max, goleadoresEquipo[0]);
+
+                const equipoJugador = equipos.find(e => e.id === maxGoleador.equipoId);
+
+                return (
+                  <>
+                    <div className='tablita'>
+                      <div className="goles-numero">{maxGoleador.goles}</div>
+                      <div className="etiqueta">GOLES</div>
+                    </div>
+
+                    <div className="fut-card" key={maxGoleador.id}>
+                      <div className="fut-card-bg" />
+                      <div className="card-overlay">
+                        <div className="card-header">
+                          <span className="card-rating">{maxGoleador.edad}</span>
+                          <span className="card-position">{maxGoleador.posicion}</span>
+                        </div>
+                        <div className="card-photo">
+                          <img
+                            src={maxGoleador.foto && maxGoleador.foto.trim() !== '' ? `/jugadores/${maxGoleador.foto}` : '/logos/silueta.png'}
+                            alt={maxGoleador.nombre}
+                            className="player-image"
+                          />
+                        </div>
+                        <div className="parte_abajo">
+                          <p className="nombre_jugador">{maxGoleador.nombre} {maxGoleador.apellido}</p>
+                        </div>
+                        <div className="abajo">
+                          <img src={`/logos/ecuaddor.png`} alt={maxGoleador.pais} className="card-flag" />
+                          <img src={`/logos/logo_liga.png`} alt="Torneo" className="torneo-logo" />
+                          {equipoJugador?.foto && (
+                            <img src={`/logos/${equipoJugador.foto}`} alt={equipoJugador.nombre} className="team-logo" />
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })()}
+            </div>
+          </div>
+        )}
+
+        <table className="tabla-goleadores">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Jugador</th>
+              <th>Goles</th>
+            </tr>
+          </thead>
+          <tbody>
+            {goleadoresEquipo.slice(0, 5).map((j, i) => (
+              <tr key={j.id}>
+                <td>{String(i + 1).padStart(2, '0')}</td>
+                <td>{j.nombre} {j.apellido}</td>
+                <td><strong>{j.goles}</strong></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       {/* Tabla de posiciones */}
-      <div className="panel" style={{ flex: 1, background: '#fff', padding: 16, borderRadius: 8, boxShadow: '0 1px 6px rgba(0,0,0,0.1)' }}>
+      <div
+        className="panel"
+        style={{
+          flex: 1,
+          background: '#fff',
+          padding: 16,
+          borderRadius: 8,
+          boxShadow: '0 1px 6px rgba(0,0,0,0.1)',
+          minWidth: 240,
+        }}
+      >
         <h3>Clasificación</h3>
         <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
           <thead>
@@ -167,10 +299,15 @@ const ClubTab: React.FC<ClubTabProps> = ({ equipoId, equipos, partidos, jugadore
           <tbody>
             {tablaOrdenada.map((pos, idx) => {
               const equipo = equipos.find(e => e.id === pos.equipoId);
-              console.log(equipo)
               if (!equipo) return null;
               return (
-                <tr key={pos._id} style={{ fontWeight: equipo.id === equipoId ? 'bold' : 'normal', backgroundColor: equipo.id === equipoId ? '#f0f8ff' : 'transparent' }}>
+                <tr
+                  key={pos._id}
+                  style={{
+                    fontWeight: equipo.id === equipoId ? 'bold' : 'normal',
+                    backgroundColor: equipo.id === equipoId ? '#f0f8ff' : 'transparent',
+                  }}
+                >
                   <td style={{ padding: '6px 8px' }}>{idx + 1}</td>
                   <td style={{ padding: '6px 8px' }}>{equipo.nombre}</td>
                   <td style={{ padding: '6px 8px' }}>{pos.puntos}</td>
@@ -181,7 +318,6 @@ const ClubTab: React.FC<ClubTabProps> = ({ equipoId, equipos, partidos, jugadore
           </tbody>
         </table>
       </div>
-
     </div>
   );
 };
@@ -533,21 +669,3 @@ const EstadisticasEquipoYJugadores: React.FC<Props> = ({ equipoId }) => {
 
   );
 };
-
-//   {jugadores.length > 0 ? (
-//     jugadores.map(j => (
-//       <div key={j.id} style={{ marginBottom: '1rem', paddingBottom: '0.5rem', borderBottom: '1px solid #ccc' }}>
-//         <strong>{j.nombre} {j.apellido}</strong>
-//         <ul>
-//           <li>Goles: {j.goles}</li>
-//           <li>Partidos Jugados: {j.partidosJugados}</li>
-//           <li>Tarjetas Amarillas: {j.tarjetasAmarillas}</li>
-//           <li>Tarjetas Rojas: {j.tarjetasRojas}</li>
-//         </ul>
-//       </div>
-//     ))
-//   ) : (
-//     <p>No hay jugadores con estadísticas.</p>
-//   )}
-// // </div> */}
-//   );
