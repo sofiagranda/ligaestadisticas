@@ -147,3 +147,41 @@
     font-weight: 400;
     text-align: center;
 }
+
+.logo-banner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-banner img {
+    padding-right: 12px;
+    width: 10%;
+}
+
+.mb-4{
+  margin: 0;
+}
+
+.fundacion{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.menu-tabs {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 10px 0;
+}
+
+.tab {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  position: relative;
+}
+
+.tab.active {
+  border-bottom: 3px solid red;
+}

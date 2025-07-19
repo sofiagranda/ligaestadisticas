@@ -1,130 +1,91 @@
-h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 20px;
-    color: #2c3e50;
-  }
-  
-  .jornadas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Ajuste para diferentes tamaños */
-    gap: 30px;
-    margin: 0 20px;
-  }
-  
-  .jornada {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .jornada h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #2c3e50;
-  }
-  
-  .partidos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Para mostrar 4 partidos por fila */
-    gap: 20px;
-  }
-  
-  .partido {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 5px;
-    display: flex;
+.jornadas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* 2 columnas automáticas */
+  gap: 20px;
+  padding: 0px 10%;
+}
+
+.jornada {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.jornada-subtitulo {
+  background-color: #00001B;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.equipo.equipo-local,
+.equipo.equipo-visitante {
+  display: flex;
+  align-items: center;
+}
+
+.partidos {
+  display: flex;
+  flex-direction: column;
+}
+
+.partido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-top: 1px solid #eee;
+  background-color: white;
+}
+
+.partido:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+.partido img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  padding: 0px 10px;
+}
+
+.partido span {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+}
+
+.jornada-titulo {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 24px;
+  color: white;
+  background-color: #003466; /* rojo similar al de la imagen */
+  padding: 16px;
+  margin: 0;
+  font-family: 'Arial Black', sans-serif; /* o una similar a la de LaLiga */
+  background-image: url("/logos/pattern.svg");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+.span-link{
+  display: flex;
+    -webkit-box-align: center;
     align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .partido img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 0 15px;
-  }
-  
-  .partido strong {
-    font-size: 1.1rem;
-    color: #333;
-  }
-  
-  .partido p {
-    font-size: 0.9rem;
-    color: #777;
-  }
-  
-  .partido div {
+    font-family: "LaLiga Text";
+    font-size: 12px;
+    line-height: 120%;
+}
+
+.enlaces {
     display: flex;
-    align-items: center;
-  }
-  
-  .partido div strong {
-    margin: 0 10px;
-  }
-  
-  .partido div p {
-    margin-top: 5px;
-    font-size: 0.9rem;
-    color: #777;
-  }
-  
-  .jornada:last-child {
-    margin-bottom: 50px;
-  }
-  
-  @media (max-width: 768px) {
-    .jornadas-grid {
-      grid-template-columns: 1fr 1fr; /* Dos columnas por fila */
-    }
-  
-    .partidos {
-      grid-template-columns: 1fr 1fr; /* Dos partidos por fila */
-    }
-  
-    .partido {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .partido img {
-      margin: 10px 0;
-    }
-  
-    .partido div {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .jornadas-grid {
-      grid-template-columns: 1fr; /* Una columna por fila */
-    }
-  
-    .partidos {
-      grid-template-columns: 1fr; /* Un partido por fila */
-    }
-  
-    .partido {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .partido img {
-      margin: 10px 0;
-    }
-  
-    .partido div {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
+}
+.link {
+    color: white;
+    padding: 0px 3px;
+    text-decoration: none;
+}

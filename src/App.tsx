@@ -9,6 +9,7 @@ import JugadoresPorEquipo from './components/JugadoresPorEquipo';
 import HomePage from './components/Home';
 import EstadisticasGenerales from './components/EstadisticasGenerales';
 import EstadisticasEquipos from './components/EstadisticasEquipos';
+import TablaPosiciones from './components/TablaPosiciones';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/equipo/:equipoId" element={<JugadoresPorEquipo />} />
           <Route path="/estadisticas/generales" element={<EstadisticasGenerales />} />
           <Route path="/estadisticas/equipos" element={<EstadisticasEquipos />} />
+          <Route path="/estadisticas/tablaposiciones" element={<TablaPosiciones />} />
         </Routes>
       </main>
     </>

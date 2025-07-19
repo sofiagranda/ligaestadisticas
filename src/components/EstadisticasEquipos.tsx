@@ -58,7 +58,18 @@ const EstadisticasEquipos: React.FC = () => {
 
     return (
         <div className="estadisticas-generales">
-            <h2>Estadísticas por Equipo</h2>
+            <div className="jornada-titulo">
+                <div className='enlaces'>
+                    <a className="link" href="/">
+                        <span className="span-link">Inicio</span>
+                    </a>
+                    <span className='span-link'>&gt;</span>
+                    <a className="link" href="/estadisticas/equipos">
+                        <span className="span-link">Estadísticas por Equipo</span>
+                    </a>
+                </div>
+                <h2 className="text-2xl font-bold mb-6 text-center">Estadísticas por Equipo</h2>
+            </div>
             <table className="tabla-estadisticas">
                 <thead>
                     <tr>

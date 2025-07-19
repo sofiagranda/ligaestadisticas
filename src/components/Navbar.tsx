@@ -101,7 +101,7 @@ const NavbarInferior: React.FC = () => {
               <div className="submenu-2">
                 <Link to="/estadisticas/generales" className="submenu-item">Generales</Link>
                 <Link to="/estadisticas/equipos" className="submenu-item">Equipos</Link>
-                <Link to="/estadisticas/tabla-posiciones" className="submenu-item">Tabla de Posiciones</Link>
+                <Link to="/estadisticas/tablaposiciones" className="submenu-item">Tabla de Posiciones</Link>
               </div>
             )}
           </div>

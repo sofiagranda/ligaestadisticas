@@ -45,9 +45,9 @@ const Jugadores: React.FC = () => {
           <div key={pos}>
             <h3 className="pos-title lmgZEJ">
               {pos === 'ARQ' ? 'Arqueros' :
-               pos === 'DEF' ? 'Defensas' :
-               pos === 'MC'  ? 'Mediocampistas' :
-               'Delanteros'}
+                pos === 'DEF' ? 'Defensas' :
+                  pos === 'MC' ? 'Mediocampistas' :
+                    'Delanteros'}
             </h3>
 
             <div className="jugadores-container">
@@ -64,7 +64,7 @@ const Jugadores: React.FC = () => {
                       </div>
                       <div className="card-photo">
                         <img
-                          src={j.foto || '/logos/silueta.png'}
+                          src={j.foto && j.foto.trim() !== '' ? `/jugadores/${j.foto}` : '/logos/silueta.png'}
                           alt={j.nombre}
                           className="player-image"
                         />

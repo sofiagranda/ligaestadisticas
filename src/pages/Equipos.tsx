@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import api from '../api/api';
 import type { Equipo } from '../types';
 import './Equipos.css';
+import './Partidos.css'
 
 const Equipos: React.FC = () => {
   const [equipos, setEquipos] = useState<Equipo[]>([]);
@@ -12,13 +13,24 @@ const Equipos: React.FC = () => {
 
   // Componente para mostrar el logo
   const LogoEquipo = ({ foto }: { foto: string }) => {
-    const imageUrl = `https://estadisticas-api.desarrollo-software.xyz/public/logos/${foto}`; // Ruta pública de la imagen
+    const imageUrl = `/logos/${foto}`; // Ruta pública de la imagen
     return <img src={imageUrl} alt="Logo del equipo" />;
   };
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-6 text-center">Equipos</h2>
+      <div className="jornada-titulo">
+        <div className='enlaces'>
+          <a className="link" href="/">
+            <span className="span-link">Inicio</span>
+          </a>
+          <span className='span-link'>&gt;</span>
+          <a className="link" href={`/equipos`}>
+            <span className="span-link">Equipos</span>
+          </a>
+        </div>
+        <h2 className="text-2xl font-bold mb-6 text-center">Equipos</h2>
+      </div>
       <div className="equipos-container">
         {equipos.map((e) => (
           <div className="equipo-card bpRpqo" key={e.id}>

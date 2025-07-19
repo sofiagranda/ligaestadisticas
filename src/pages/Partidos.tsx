@@ -68,42 +68,50 @@ const Partidos: React.FC = () => {
 
   return (
     <div>
-      <h2 className="mb-4">Calendario de Partidos</h2>
+      <div className="jornada-titulo">
+        <div className='enlaces'>
+          <a className="link" href="/">
+            <span className="span-link">Inicio</span>
+          </a>
+          <span className='span-link'>&gt;</span>
+          <a className="link" href="/partidos">
+            <span className="span-link">Calendario</span>
+          </a>
+        </div>
+        <h2 className="">Calendario de Partidos</h2>
+      </div>
+
       <div className="jornadas-grid">
-        {Object.keys(partidosPorSemana).map(semana => {
-          return (
-            <div className="jornada" key={semana}>
-              <h3>{`Semana del ${semana}`}</h3>
-              <div className="partidos">
-                {partidosPorSemana[semana].map(partido => {
-                  // Obtenemos los equipos por sus IDs (partido.equipoLocalId y partido.equipoVisitanteId)
-                  const equipoLocal = equipos[partido.equipoLocalId];
-                  const equipoVisitante = equipos[partido.equipoVisitanteId];
+        {Object.keys(partidosPorSemana).map(semana => (
+          <div className="jornada" key={semana}>
+            <h3 className="jornada-subtitulo">{semana}</h3>
 
-                  if (!equipoLocal || !equipoVisitante) return null; // Si los equipos no están cargados, no renderizamos el partido
+            <div className="partidos">
+              {partidosPorSemana[semana].map(partido => {
+                const equipoLocal = equipos[partido.equipoLocalId];
+                const equipoVisitante = equipos[partido.equipoVisitanteId];
 
-                  return (
-                    <div className="partido" key={partido.id}>
-                      <img
-                        src={`/logos/${equipoLocal.foto}`} // Ajusta según la ruta de tus imágenes
-                        alt={equipoLocal.nombre}
-                        className="logo"
-                      />
-                      <strong>{equipoLocal.nombre} {partido.golesLocal} - {partido.golesVisitante} {equipoVisitante.nombre}</strong>
-                      <img
-                        src={`/logos/${equipoVisitante.foto}`} // Ajusta según la ruta de tus imágenes
-                        alt={equipoVisitante.nombre}
-                        className="logo"
-                      />
-                      <br />
-                      Fecha: {new Date(partido.fecha).toLocaleDateString()} - Estado: {partido.estado}
+                if (!equipoLocal || !equipoVisitante) return null;
+
+                return (
+                  <div className="partido" key={partido.id}>
+                    <div className="equipo equipo-local">
+                      <span>{equipoLocal.nombre}</span>
+                      <img src={`/logos/${equipoLocal.foto}`} alt={equipoLocal.nombre} />
                     </div>
-                  );
-                })}
-              </div>
+
+                    <div className="vs">vs</div>
+
+                    <div className="equipo equipo-visitante">
+                      <img src={`/logos/${equipoVisitante.foto}`} alt={equipoVisitante.nombre} />
+                      <span>{equipoVisitante.nombre}</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </div>
   );

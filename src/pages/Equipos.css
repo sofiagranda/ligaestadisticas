@@ -38,7 +38,7 @@
     height: auto;
     position: relative;
     background: url(https://www.laliga.com/backgrounds/pattern.svg) center top / cover no-repeat 
-    rgb(15, 57, 184);
+    #003466;
     color: rgb(255, 255, 255);
     text-align: center;
     /* padding: calc(20% + 2rem) 1rem 1rem; */

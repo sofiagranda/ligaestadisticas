@@ -41,3 +41,16 @@ export interface Partido {
   golesVisitante: number;
   estado: string;
 }
+
+export interface Posicion {
+  _id: string;
+  equipoId: number;
+  puntos: number;
+  partidosJugados: number;
+  partidosGanados: number;
+  partidosEmpatados: number;
+  partidosPerdidos: number;
+  golesFavor: number;
+  golesContra: number;
+  diferenciaGol: number;
+}

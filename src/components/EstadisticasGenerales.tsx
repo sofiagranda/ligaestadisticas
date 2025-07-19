@@ -53,7 +53,18 @@ const EstadisticasGenerales: React.FC = () => {
 
   return (
     <div className="estadisticas-generales">
-      <h2>Estadísticas Generales</h2>
+      <div className="jornada-titulo">
+        <div className='enlaces'>
+          <a className="link" href="/">
+            <span className="span-link">Inicio</span>
+          </a>
+          <span className='span-link'>&gt;</span>
+          <a className="link" href="/estadisticas/generales">
+            <span className="span-link">Estadísticas Generales</span>
+          </a>
+        </div>
+        <h2 className="text-2xl font-bold mb-6 text-center">Estadísticas Generales</h2>
+      </div>
 
       <div className="filtros mb-4">
         <button
@@ -100,10 +111,11 @@ const EstadisticasGenerales: React.FC = () => {
                 <td>
                   <div className="jugador-info">
                     <img
-                      src={j.foto ? j.foto : '/logos/silueta.png'}
+                      src={j.foto && j.foto.trim() !== '' ? `/jugadores/${j.foto}` : '/logos/silueta.png'}
                       alt={j.nombre}
                       className="foto-jugador"
-                    />                    {j.nombre} {j.apellido}
+                    />
+                    {j.nombre} {j.apellido}
                   </div>
                 </td>
                 <td>

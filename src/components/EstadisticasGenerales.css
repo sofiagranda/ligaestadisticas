@@ -1,5 +1,5 @@
 .estadisticas-generales {
-  padding: 20px;
+  padding: 0px 20px;
 }
 
 .filtros button {
@@ -25,9 +25,9 @@
 }
 
 .filtros button.active {
-  background-color: #ff4d4f;
+  background-color: #003466;
   color: white;
-  border-color: #ff4d4f;
+  border-color: #003466;
 }
 
 .filtros button:hover:not(.active) {
