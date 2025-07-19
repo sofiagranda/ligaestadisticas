@@ -89,3 +89,66 @@
     padding: 0px 3px;
     text-decoration: none;
 }
+
+.lista-partidos {
+  list-style: none;
+  padding: 0;
+}
+
+
+.partido-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto auto; /* fecha, hora, equipos, competicion, flecha */
+  align-items: center;
+  gap: 12px;
+}
+
+.fecha, .hora, .competicion, .flecha {
+  min-width: 80px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.equipos {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.equipo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.equipos .equipo:first-child {
+  justify-content: center;
+}
+
+.equipos .equipo:last-child {
+  justify-content: center;
+}
+
+.vs {
+  font-weight: bold;
+  color: #003466;
+  text-align: center;
+  min-width: 50px;
+  font-size: 20px;
+}
+
+.logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  margin: 0;
+}
+
+

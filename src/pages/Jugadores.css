@@ -185,3 +185,86 @@
 .tab.active {
   border-bottom: 3px solid red;
 }
+
+.goleadores-panel {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.top-goleador-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.goleador-principal {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.goles-numero {
+  font-size: 48px;
+  font-weight: bold;
+  color: #0050ff;
+  margin-bottom: 4px;
+}
+
+.etiqueta {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.foto-principal {
+  width: 88px;
+  height: 88px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.nombre-principal {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.equipo-principal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.logo-equipo {
+  width: 20px;
+  height: 20px;
+}
+
+.tabla-goleadores {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabla-goleadores th,
+.tabla-goleadores td {
+  padding: 8px;
+  text-align: left;
+}
+
+.tabla-goleadores thead {
+  background-color: #f0f0f0;
+}
+
+.logo-mini {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  vertical-align: middle;
+}

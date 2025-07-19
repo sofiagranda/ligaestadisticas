@@ -1,6 +1,10 @@
 .estadisticas-generales {
   padding: 0px 20px;
 }
+.texto-centro{
+  font-size: xx-large;
+  text-align: center;
+}
 
 .filtros button {
   margin-right: 8px;
@@ -13,6 +17,7 @@
   transition: background-color 0.3s;
   width: 18%;
 }
+
 
 .filtros{
   margin: 20px 0px;
@@ -46,7 +51,7 @@
 .tabla-estadisticas th,
 .tabla-estadisticas td {
   padding: 12px;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #ddd;
 }
 
