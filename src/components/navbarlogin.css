@@ -1,0 +1,38 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #111; /* negro oscuro */
+  padding: 0.75rem 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.navbar__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__list li {
+  margin-right: 2rem;
+}
+
+.navbar__list li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar__list li a:hover {
+  color: #e60012; /* rojo LaLiga */
+}
+
+.navbar__user {
+  margin-left: auto;
+  color: #eee;
+  font-weight: 700;
+}

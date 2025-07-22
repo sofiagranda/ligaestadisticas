@@ -118,6 +118,7 @@
   background-color: rgb(15, 57, 184);
   padding: 32px 0px;
   color: white;
+  text-transform: uppercase;
 }
 
 .nav-item {

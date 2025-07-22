@@ -36,7 +36,7 @@ const Equipos: React.FC = () => {
           <div className="equipo-card bpRpqo" key={e.id}>
             <LogoEquipo foto={e.foto} /> {/* Aquí pasamos el nombre del archivo */}
             <h3 >{e.nombre}</h3>
-            <p className='equipos'>Fundación {e.fundacion}</p>
+            <p className='equipos-fundacion'>Fundación {e.fundacion}</p>
             <a href={`/equipo/${e.id}`} className="btn">
               Ver Jugadores
             </a>

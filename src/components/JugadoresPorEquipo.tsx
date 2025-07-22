@@ -63,7 +63,7 @@ const ClubTab: React.FC<ClubTabProps> = ({ equipoId, equipos, partidos, jugadore
       style={{
         display: 'flex',
         gap: 24,
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         flexWrap: 'wrap', // para que se adapte si hay poco espacio
       }}
     >
@@ -145,56 +145,8 @@ const ClubTab: React.FC<ClubTabProps> = ({ equipoId, equipos, partidos, jugadore
             ))}
           </tbody>
         </table>
+        <a className='texto-club' href="/estadisticas/generales">TODOS LOS LÍDERES EN GOLES</a>
       </div>
-
-      {/* Próximo rival */}
-      <div
-        className="panel proximo-rival"
-        style={{
-          flex: 1,
-          textAlign: 'center',
-          background: '#fff',
-          padding: 16,
-          borderRadius: 8,
-          boxShadow: '0 1px 6px rgba(0,0,0,0.1)',
-          minWidth: 240,
-        }}
-      >
-        <h3>PRÓXIMO RIVAL</h3>
-        {rival ? (
-          <>
-            <img
-              src={`/logos/${getEquipoFoto(rival.id)}`}
-              alt={rival.nombre}
-              style={{ width: "100%", marginBottom: 12 }}
-            />
-            <h4 className="nombre-proximo">{rival.nombre}</h4>
-            {proximoPartido ? (
-              <div className="countdown-container">
-                <div className="time-segment">
-                  <div className="time-number">{String(days).padStart(2, '0')}</div>
-                  <div className="time-label">Days</div>
-                </div>
-                <div className="time-segment">
-                  <div className="time-number">{String(hours).padStart(2, '0')}</div>
-                  <div className="time-label">Hours</div>
-                </div>
-                <div className="time-segment">
-                  <div className="time-number">{String(minutes).padStart(2, '0')}</div>
-                  <div className="time-label">Minutes</div>
-                </div>
-                <div className="time-segment">
-                  <div className="time-number">{String(seconds).padStart(2, '0')}</div>
-                  <div className="time-label">Seconds</div>
-                </div>
-              </div>
-            ) : (
-              <p>No hay próximo partido.</p>
-            )}
-          </>
-        ) : null}
-      </div>
-
       {/* Partidos jugados */}
       <div className="panel goleadores-panel" style={{ minWidth: 320 }}>
         <h3 className="texto-centro">🏆 Partidos Jugados</h3>
@@ -210,15 +162,15 @@ const ClubTab: React.FC<ClubTabProps> = ({ equipoId, equipos, partidos, jugadore
 
                 // Encontrar el máximo goleador
                 const maxGoleador = goleadoresEquipo.reduce((max, jugador) =>
-                  jugador.goles > max.goles ? jugador : max, goleadoresEquipo[0]);
+                  jugador.partidosJugados > max.partidosJugados ? jugador : max, goleadoresEquipo[0]);
 
                 const equipoJugador = equipos.find(e => e.id === maxGoleador.equipoId);
 
                 return (
                   <>
                     <div className='tablita'>
-                      <div className="goles-numero">{maxGoleador.goles}</div>
-                      <div className="etiqueta">GOLES</div>
+                      <div className="goles-numero">{maxGoleador.partidosJugados}</div>
+                      <div className="etiqueta">Partidos</div>
                     </div>
 
                     <div className="fut-card" key={maxGoleador.id}>
@@ -259,7 +211,7 @@ const ClubTab: React.FC<ClubTabProps> = ({ equipoId, equipos, partidos, jugadore
             <tr>
               <th>#</th>
               <th>Jugador</th>
-              <th>Goles</th>
+              <th>P. JUGADOS</th>
             </tr>
           </thead>
           <tbody>
@@ -267,13 +219,59 @@ const ClubTab: React.FC<ClubTabProps> = ({ equipoId, equipos, partidos, jugadore
               <tr key={j.id}>
                 <td>{String(i + 1).padStart(2, '0')}</td>
                 <td>{j.nombre} {j.apellido}</td>
-                <td><strong>{j.goles}</strong></td>
+                <td><strong>{j.partidosJugados}</strong></td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-
+      {/* Próximo rival */}
+      <div
+        className="panel proximo-rival"
+        style={{
+          flex: 1,
+          textAlign: 'center',
+          background: '#fff',
+          padding: 16,
+          borderRadius: 8,
+          boxShadow: '0 1px 6px rgba(0,0,0,0.1)',
+          minWidth: 240,
+        }}
+      >
+        <h3>PRÓXIMO RIVAL</h3>
+        {rival ? (
+          <>
+            <img
+              src={`/logos/${getEquipoFoto(rival.id)}`}
+              alt={rival.nombre}
+              style={{ width: "50%", marginBottom: 12 }}
+            />
+            <h4 className="nombre-proximo">{rival.nombre}</h4>
+            {proximoPartido ? (
+              <div className="countdown-container">
+                <div className="time-segment">
+                  <div className="time-number">{String(days).padStart(2, '0')}</div>
+                  <div className="time-label">Days</div>
+                </div>
+                <div className="time-segment">
+                  <div className="time-number">{String(hours).padStart(2, '0')}</div>
+                  <div className="time-label">Hours</div>
+                </div>
+                <div className="time-segment">
+                  <div className="time-number">{String(minutes).padStart(2, '0')}</div>
+                  <div className="time-label">Minutes</div>
+                </div>
+                <div className="time-segment">
+                  <div className="time-number">{String(seconds).padStart(2, '0')}</div>
+                  <div className="time-label">Seconds</div>
+                </div>
+              </div>
+            ) : (
+              <p>No hay próximo partido.</p>
+            )}
+          </>
+        ) : null}
+      </div>
       {/* Tabla de posiciones */}
       <div
         className="panel"
@@ -286,8 +284,8 @@ const ClubTab: React.FC<ClubTabProps> = ({ equipoId, equipos, partidos, jugadore
           minWidth: 240,
         }}
       >
-        <h3>Clasificación</h3>
-        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+        <h3 className='texto-centro'>Clasificación</h3>
+        <table className="tabla-estadisticas" style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
           <thead>
             <tr>
               <th style={{ padding: '6px 8px' }}>P.</th>

@@ -1,0 +1,48 @@
+.login-form {
+  max-width: 360px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-form__title {
+  text-align: center;
+  color: #003466; 
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.login-form__input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.login-form__input:focus {
+  border-color: #003466;
+}
+
+.login-form__button {
+  width: 100%;
+  padding: 12px;
+  background-color: #003466; /* rojo LaLiga */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form__button:hover {
+  background-color: #003499;
+}

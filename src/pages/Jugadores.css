@@ -150,6 +150,42 @@
   text-align: center;
 }
 
+.card-header {
+  position: relative;
+  /* para posicionar los botones absolutos */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* para separar rating+posicion y botones */
+  gap: 0.5rem;
+}
+
+.card-actions {
+  position: absolute;
+  top: 1.3rem;
+  right: 2.3rem;
+  display: flex;
+  gap: 0.3rem;
+  flex-direction: column-reverse;
+}
+
+.card-actions button {
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 1rem;
+  line-height: 1;
+  transition: background-color 0.2s ease;
+}
+
+.card-actions button:hover {
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+}
+
+
 .logo-banner {
   display: flex;
   align-items: center;
@@ -278,7 +314,7 @@
   padding: 59px;
 }
 
-.nombre-proximo{
+.nombre-proximo {
   margin: 10px 0;
   font-size: xxx-large;
 }
@@ -308,4 +344,40 @@
   letter-spacing: 1px;
   margin-top: 4px;
   text-transform: uppercase;
+}
+
+.texto-club {
+  color: #0050ff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #333;
+  padding: 5px 0;
+}
+
+.btn-nuevo-jugador {
+  background-color: #003466 !important;
+  color: white;
+  padding: 13px;
+  border-radius: 10%;
+  border-color: transparent;
+  display: flex;
+  margin: 0 auto;
+}
+
+.btn-nuevo-jugador:hover {
+  cursor: pointer;
+  background-color: #0a0a23 !important;
+}
+
+.filtros-container {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filtro-input, .filtro-select {
+  padding: 0.5rem;
+  font-size: 1rem;
 }

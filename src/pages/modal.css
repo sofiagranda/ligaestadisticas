@@ -1,0 +1,84 @@
+
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal box */
+.modal {
+  background: #222;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 320px;
+  max-width: 90%;
+  color: white;
+  box-shadow: 0 0 10px #000;
+}
+
+/* Modal header */
+.modal h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Form inside modal */
+.modal form input,
+.modal form select {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  background: #444;
+  color: white;
+  box-sizing: border-box;
+}
+
+/* Preview de foto en modal */
+.preview-foto {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.preview-foto img {
+  border-radius: 8px;
+  max-width: 100px;
+  height: auto;
+  border: 2px solid #666;
+}
+
+/* Botones modal */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-actions button {
+  background-color: #0077aa;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.modal-actions button:hover {
+  background-color: #005577;
+}
+.modal-actions button[type="button"] {
+  background-color: #444;
+}
+.modal-actions button[type="button"]:hover {
+  background-color: #222;
+}
