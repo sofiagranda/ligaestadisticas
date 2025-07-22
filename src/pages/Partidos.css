@@ -151,4 +151,43 @@
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  .jornadas-grid {
+    padding: 0 5%;
+    grid-template-columns: 1fr; /* Una sola columna en móviles */
+  }
 
+  .partido-item {
+    grid-template-columns: 1fr 0fr;
+    gap: 8px;
+  }
+
+  .fecha, .hora, .competicion, .flecha {
+    min-width: auto;
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .equipos {
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: 4px;
+  }
+
+  .equipo {
+    justify-content: flex-start;
+    white-space: normal; /* Que el texto pueda quebrar en móviles */
+  }
+
+  .partido {
+    flex-wrap: wrap;
+    padding: 8px 12px;
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 400px) {
+  .jornadas-grid {
+    padding: 0 2%;
+  }
+}

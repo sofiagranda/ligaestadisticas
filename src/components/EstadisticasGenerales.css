@@ -1,7 +1,8 @@
 .estadisticas-generales {
   padding: 0px 20px;
 }
-.texto-centro{
+
+.texto-centro {
   font-size: xx-large;
   text-align: center;
 }
@@ -19,12 +20,12 @@
 }
 
 
-.filtros{
+.filtros {
   margin: 20px 0px;
   width: auto;
 }
 
-.ranking{
+.ranking {
   /* display: inline-block; */
   width: 0;
 }
@@ -42,6 +43,10 @@
 .tabla-estadisticas {
   width: 100%;
   border-collapse: collapse;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  display: block;
 }
 
 .tabla-estadisticas thead {
@@ -70,4 +75,62 @@
   height: 32px;
   object-fit: contain;
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .texto-centro {
+    font-size: x-large;
+  }
+
+  .filtros {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filtros button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .tabla-estadisticas {
+    font-size: 14px;
+  }
+
+  .tabla-estadisticas th,
+  .tabla-estadisticas td {
+    padding: 10px;
+  }
+
+  .foto-jugador,
+  .logo-equipo {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .texto-centro {
+    font-size: large;
+  }
+
+  .jornada-titulo{
+    text-transform: capitalize;
+  }
+
+  .filtros button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .tabla-estadisticas th,
+  .tabla-estadisticas td {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .foto-jugador,
+  .logo-equipo {
+    width: 24px;
+    height: 24px;
+  }
 }

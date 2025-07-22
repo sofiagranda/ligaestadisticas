@@ -362,7 +362,7 @@
   border-radius: 10%;
   border-color: transparent;
   display: flex;
-  margin: 0 auto;
+  margin: 5px auto;
 }
 
 .btn-nuevo-jugador:hover {
@@ -377,7 +377,53 @@
   align-items: center;
 }
 
-.filtro-input, .filtro-select {
+.filtro-input,
+.filtro-select {
   padding: 0.5rem;
   font-size: 1rem;
+}
+
+
+@media (max-width: 1024px) {
+  .jugadores-container {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+  }
+
+  .fut-card {
+    width: 100%;
+    max-width: 220px;
+    /* opcional para no crecer demasiado */
+    height: auto;
+    /* si quieres que la altura sea automática */
+  }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .jugadores-container {
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .fut-card {
+    width: 100%;
+    height: 92%;
+    margin: 0 auto;
+  }
+
+  .menu-tabs{
+    flex-direction: column;
+  }
+
+  .logo-banner{
+    flex-direction: column;
+  }
+
+  .logo-banner img{
+    width: 50%;
+  }
+
+  .filtros-container{
+    flex-direction: column !important;
+  }
 }

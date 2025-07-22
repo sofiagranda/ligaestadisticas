@@ -1,11 +1,14 @@
+/* Estilos base - escritorio */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #111; /* negro oscuro */
+  background-color: #111;
   padding: 0.75rem 1rem;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
 }
 
 .navbar__list {
@@ -28,11 +31,54 @@
 }
 
 .navbar__list li a:hover {
-  color: #e60012; /* rojo LaLiga */
+  color: #e60012;
 }
 
 .navbar__user {
   margin-left: auto;
   color: #eee;
   font-weight: 700;
+}
+
+/* Botón hamburguesa */
+.navbar__toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Responsive - móviles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .navbar__toggle {
+    display: block;
+  }
+
+  .navbar__list {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* Oculto por defecto */
+    margin-top: 0.5rem;
+  }
+
+  .navbar__list.show {
+    display: flex; /* Se muestra al hacer toggle */
+  }
+
+  .navbar__list li {
+    margin: 0.5rem 0;
+  }
+
+  .navbar__user {
+    margin: 1rem 0 0;
+    width: 100%;
+    text-align: center;
+  }
 }

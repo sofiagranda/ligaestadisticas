@@ -169,3 +169,77 @@
     padding: 8px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
+
+@media (max-width: 768px) {
+  .navbar-inferior {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .organizacion,
+  .organizacion2 {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: auto;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+
+  .img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .laliga-logo {
+    height: 200px;
+    padding: 0;
+  }
+
+  .fbIVah {
+    padding: 8px 0;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    border: none;
+  }
+
+  .text-danger {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 0;
+    font-size: 14px;
+    text-align: left;
+    gap: 0.5rem;
+  }
+
+  .nav-item,
+  .nav-link {
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .submenu-2 {
+    position: static;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: none;
+  }
+
+  .submenu-item {
+    padding: 8px 0;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+
+  .fw-bold {
+    padding: 8px 0;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+  }
+}
