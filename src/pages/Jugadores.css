@@ -411,19 +411,49 @@
     margin: 0 auto;
   }
 
-  .menu-tabs{
+  .menu-tabs {
     flex-direction: column;
   }
 
-  .logo-banner{
+  .logo-banner {
     flex-direction: column;
   }
 
-  .logo-banner img{
+  .logo-banner img {
     width: 50%;
   }
 
-  .filtros-container{
+  .filtros-container {
     flex-direction: column !important;
+  }
+
+  .tablita {
+    padding: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .goleador-principal {
+    flex-direction: column-reverse;
+  }
+
+  .goleador-principal .abajo {
+    display: flex;
+    align-items: baseline;
+    width: 35%;
+    justify-content: center;
+    padding-bottom: 35px;
+  }
+
+  .etiqueta {
+    margin: 0;
+  }
+
+  .goles-numero {
+    font-size: 5rem;
+    color: #0050ff;
+    margin-bottom: 4px;
+    margin: 0 15px;
   }
 }
