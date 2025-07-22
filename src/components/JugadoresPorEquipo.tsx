@@ -48,12 +48,12 @@ const ClubTab: React.FC<ClubTabProps> = ({ equipoId, equipos, partidos, jugadore
     .slice(0, 5);
 
   // Partidos completados del equipo
-  const partidosJugados = partidos.filter(p => p.estado === 'completo' && (p.equipoLocalId === equipoId || p.equipoVisitanteId === equipoId));
+  // const partidosJugados = partidos.filter(p => p.estado === 'completo' && (p.equipoLocalId === equipoId || p.equipoVisitanteId === equipoId));
 
   // Tabla posiciones ordenada por puntos descendente
   const tablaOrdenada = [...tablaPosiciones].sort((a, b) => b.puntos - a.puntos);
 
-  const getEquipoNombre = (id: number) => equipos.find(e => e.id === id)?.nombre || 'Desconocido';
+  // const getEquipoNombre = (id: number) => equipos.find(e => e.id === id)?.nombre || 'Desconocido';
 
   const getEquipoFoto = (id: number) => equipos.find(e => e.id === id)?.foto || '';
 

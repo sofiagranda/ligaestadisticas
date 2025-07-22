@@ -8,8 +8,8 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const NavbarInferior: React.FC = () => {
-  const [equipos, setEquipos] = useState<Equipo[]>([]);
-  const [mostrarMenuJugadores, setMostrarMenuJugadores] = useState(false);
+  const [, setEquipos] = useState<Equipo[]>([]);
+  const [, setMostrarMenuJugadores] = useState(false);
   const [mostrarMenuEstadisticas, setMostrarMenuEstadisticas] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
