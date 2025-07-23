@@ -41,6 +41,7 @@ const Partidos: React.FC = () => {
 
   useEffect(() => {
     api.get('/partidos').then(res => {
+      console.log("🔍 Partidos cargados:", res.data);
       setPartidos(res.data);
       api.get('/equipos').then(response => {
         const equiposData = response.data.data.items;
@@ -114,6 +115,18 @@ const Partidos: React.FC = () => {
     acc[weekLabel].push(partido);
     return acc;
   }, {} as { [key: string]: Partido[] });
+  
+
+  function toLocalDateTimeString(date: Date) {
+    const pad = (n: number) => n.toString().padStart(2, '0');
+    return (
+      date.getFullYear() + '-' +
+      pad(date.getMonth() + 1) + '-' +
+      pad(date.getDate()) + 'T' +
+      pad(date.getHours()) + ':' +
+      pad(date.getMinutes())
+    );
+  }
 
   return (
     <div>
@@ -201,17 +214,28 @@ const Partidos: React.FC = () => {
             <form onSubmit={async (e) => {
               e.preventDefault();
               try {
-                await api.put(`/partidos/${partidoSeleccionado.id}`, partidoSeleccionado);
+                const payload = {
+                  fecha: new Date(partidoSeleccionado.fecha).toISOString(),
+                  equipoLocalId: partidoSeleccionado.equipoLocalId,
+                  equipoVisitanteId: partidoSeleccionado.equipoVisitanteId,
+                  golesLocal: partidoSeleccionado.golesLocal,
+                  golesVisitante: partidoSeleccionado.golesVisitante,
+                  estado: partidoSeleccionado.estado
+                };
+
+                console.log("📦 Payload enviado al PUT:", payload);
+                await api.put(`/partidos/${partidoSeleccionado.id}`, payload);
                 setMostrarModal(false);
                 cargarPartidos();
               } catch (err) {
+                console.error("❌ Error al actualizar partido", err);
                 alert('Error al actualizar partido');
               }
             }}>
               <label>Fecha:
                 <input
                   type="datetime-local"
-                  value={new Date(partidoSeleccionado.fecha).toISOString().slice(0, 16)}
+                  value={partidoSeleccionado ? toLocalDateTimeString(new Date(partidoSeleccionado.fecha)) : ''}
                   onChange={(e) => setPartidoSeleccionado({ ...partidoSeleccionado, fecha: new Date(e.target.value) })}
                   required
                 />
@@ -262,7 +286,7 @@ const Partidos: React.FC = () => {
               <label>Fecha:
                 <input
                   type="datetime-local"
-                  value={new Date(nuevoPartido.fecha!).toISOString().slice(0, 16)}
+                  value={nuevoPartido.fecha ? toLocalDateTimeString(new Date(nuevoPartido.fecha)) : ''}
                   onChange={(e) => setNuevoPartido({ ...nuevoPartido, fecha: new Date(e.target.value) })}
                   required
                 />
