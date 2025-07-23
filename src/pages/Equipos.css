@@ -10,7 +10,8 @@
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  background-color: #003466; /* fondo de respaldo si no carga la imagen de patrón */
+  background-color: #003466;
+  /* fondo de respaldo si no carga la imagen de patrón */
 }
 
 .logo {
@@ -58,6 +59,11 @@
   width: 100%;
 }
 
+.crear-equipo {
+  display: flex;
+  justify-content: center;
+}
+
 /* Responsive para pantallas grandes a medianas */
 @media (max-width: 1200px) {
   .equipos-container {
@@ -82,7 +88,7 @@
     grid-template-columns: 1fr;
   }
 
-  .bpRpqo{
+  .bpRpqo {
     width: 70%;
     margin: 0 5px;
   }

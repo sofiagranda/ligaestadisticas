@@ -36,7 +36,7 @@ export interface Partido {
   id: number;
   equipoLocalId: number;
   equipoVisitanteId: number;
-  fecha: string;
+  fecha: Date;
   golesLocal: number;
   golesVisitante: number;
   estado: string;
@@ -54,3 +54,36 @@ export interface Posicion {
   golesContra: number;
   diferenciaGol: number;
 }
+
+// types.ts
+
+export type NominaJugador = {
+  jugadorId: number;
+  equipoId: number;
+  jugo: boolean;
+};
+
+export type Goleador = {
+  jugadorId: number;
+  numeroGoles: number;
+};
+
+export type Tarjeta = {
+  jugadorId: number;
+  equipoId: number;
+};
+
+export type Vocalia = {
+  _id: string; // o number si usas IDs numéricos en Mongo
+  partidoId: number;
+  equipoLocalId: number;
+  equipoVisitanteId: number;
+  golesLocal: number;
+  golesVisita: number;
+  nominaLocal: NominaJugador[];
+  nominaVisitante: NominaJugador[];
+  goleadoresLocal: Goleador[];
+  goleadoresVisita: Goleador[];
+  tarjetasAmarillas: Tarjeta[];
+  tarjetasRojas: Tarjeta[];
+};

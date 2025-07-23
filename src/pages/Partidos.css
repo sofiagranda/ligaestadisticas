@@ -65,11 +65,18 @@
   color: white;
   background-color: #003466; /* rojo similar al de la imagen */
   padding: 16px;
-  margin: 0;
+  margin: 3px 0;
   font-family: 'Arial Black', sans-serif; /* o una similar a la de LaLiga */
   background-image: url("/logos/pattern.svg");
   background-repeat: no-repeat;
   background-position: right top;
+}
+
+.acciones-partido {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-end; /* ✅ Esto los lleva a la derecha */
+  gap: 10px;
 }
 
 .span-link{
@@ -81,6 +88,10 @@
     line-height: 120%;
 }
 
+.crear-partido{
+  display: flex;
+  justify-content: center;
+}
 .enlaces {
     display: flex;
 }
